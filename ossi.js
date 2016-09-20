@@ -111,12 +111,24 @@ var Ossi = (function () {
             }
             return result;
         }
-        var result = {};
+        function _translate(obj, dict){
+            var result = {};
+            Object.keys(obj).forEach((key) => {
+                var t = findKey(key, dict);
+                result[t] = obj[key];
+            })
+            return result;
+        }
+        var result;
         var d = findSubDictionary(command, Ossi.dictionary);
-        Object.keys(obj).forEach((key) => {
-            var t = findKey(key, d);
-            result[t] = obj[key];
-        })
+        if ((obj.constructor || {}).name == 'Array'){
+            result = [];
+            obj.forEach((i) => {
+                result.push(_translate(i, d));
+            })
+        } else if ((obj.constructor || {}).name == 'Object'){
+            result = _translate(obj, d)
+        }
         return result; 
     }
 
@@ -347,7 +359,7 @@ var Ossi = (function () {
                 this.writeLog(Ossi.VERBOSITY.silly, `execute ready`, options, result)
                 result = options.parse ? this.parseResult(result) : result;
                 if (options.parse && options.translate) {
-                    if (result.map) result = result.map(r => Ossi.translate(r, options.command))
+                    if (result.map) result = Ossi.translate(result, options.command)
                 }
                 deferred.resolve(result);
                 cb.call(this, result);
