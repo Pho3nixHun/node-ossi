@@ -1,0 +1,38 @@
+{
+  "name": "node-ossi",
+  "version": "0.1.0",
+  "description": "Node module for Avaya's ossi protocol.",
+  "main": "ossi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pho3nixHun/node-ossi.git"
+  },
+  "keywords": [
+    "nodejs",
+    "avaya",
+    "ossi",
+    "ossi3",
+    "ossi4",
+    "acm",
+    "cm",
+    "communication",
+    "manager"
+  ],
+  "author": "László Simon",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Pho3nixHun/node-ossi/issues"
+  },
+  "homepage": "https://github.com/Pho3nixHun/node-ossi#readme",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "events": "^1.1.1",
+    "q": "^1.4.1",
+    "ssh2": "^0.4.15",
+    "util": "^0.10.3",
+    "xtend": "^4.0.1"
+  }
+}
