@@ -113,7 +113,6 @@ var Ossi = (function () {
         }
         var result = {};
         var d = findSubDictionary(command, Ossi.dictionary);
-        console.log('Translate')
         Object.keys(obj).forEach((key) => {
             var t = findKey(key, d);
             result[t] = obj[key];
